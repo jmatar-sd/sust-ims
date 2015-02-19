@@ -1,0 +1,81 @@
+@import "../_patterns/patterns";
+
+$border-radius:				2.2em;
+$base-color:				rgba(122, 189, 122, .44);
+$btn-color:					rgba(189, 44, 22  , .44);
+$btn-width:					16%;
+$main-pane-border:			0 0 $border-radius $border-radius	;
+$top-left-pane-border:		$border-radius 0 0 0	;
+$top-right-pane-border:		0 $border-radius 0 0	;
+@mixin panes{
+	.main-pane{
+	@include			glass-shadow;
+	@include			glass-color(rgba(255,255,255, .22));
+  		background-color: 			$base-color;
+  		@include border-radius($border-radius);
+  		.tools-pane{
+  			position:					relative;
+  			background-color: 			darken($base-color, 89%);
+  			@include  					border-radius($main-pane-border);
+  			opacity: 					.89;
+  			@include 					trans('opacity' , 0.89s , 'ease');
+  			&:hover						{opacity:  1;background-color: 			darken($base-color, 99%);}
+  			.v-button{
+  				&:focus{outline: none;}
+  				line-height: 89px;
+  				text-align: center;
+  				.v-icon{
+  					@include 		trans('color' , 0.89s , 'ease-in');
+  					width:			100%;
+  					font-size:  	2.2em;
+  					color:			darken($btn-color, 44%);
+  					&:hover{color: 	lighten($btn-color, 22%);}
+  				}
+  				&:hover{cursor: pointer;}
+  			}
+  			.btn{
+  				position: absolute;
+  				display:  inline-block;
+  				top: 	  0;
+  				width:	  $btn-width;
+  			}
+  			.line-chart-btn	{left:  .333333334%;}
+  			.bar-chart-btn	{left: 	$btn-width*1;}
+  			.pie-chart-btn	{left:  $btn-width*2;}
+  			.data-on-table-btn	{left: 	$btn-width*3;}
+  			.manage-data-btn		{right: $btn-width*1;}
+  			.user-info-btn	{right: .333333334%;}
+  		}
+  		.charts-pane{
+  			/*background-color: $btn-color;*/
+  			@include  					border-radius($top-left-pane-border);
+  		}
+  		.logo-pane{
+  			/*background-color: darken($base-color, 98%);*/
+  			@include  					border-radius($top-right-pane-border);
+        .sust-logo-image{
+          @include border-radius($border-radius);
+          border:       2.2px solid black;
+          @include      glass-color(rgba(255,255,255, .22));
+        }
+  		}
+        .sust-logo-title{
+          color:        white;
+          @include      glass-color(rgba(255,255,255, .89));
+          border:       2.2px solid black;
+          border-right: 22px solid black;
+          @include      border-radius($border-radius 0 0 $border-radius);
+        }
+
+	}
+
+
+}
+@mixin main-content{
+	.main-content{
+		//background-image:   url("bg6.jpg");
+    background-color:      rgb(30, 20, 5);
+		background-size: 	100% auto;
+	}
+}
+/*Welcome Smiley ! please hit the help button [ look > 9 o'clock ] or just push the fucking buttons below & fall in love with me Jeffy Chart's Addon by Mohammed Matar.*/

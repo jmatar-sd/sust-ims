@@ -1,0 +1,7 @@
+@import "_views/panes";
+
+@mixin power-glass{
+  
+  @include main-content;
+  @include panes;
+} 
