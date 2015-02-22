@@ -69,6 +69,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.6</version>
+</dependency>
+
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
@@ -108,6 +114,23 @@
 			<version>2.1.0</version>
 			<scope>compile</scope>
 			</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.0-RC1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.persistence</groupId>
+					<artifactId>commonj.sdo</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.6</version>
+</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -125,11 +148,17 @@
 			<snapshots>
 			</snapshots>
 		</repository>
+<!--
 		<repository>
 			<id>EclipseLink Repo</id>
 			<url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
 		</repository>
-
+-->
+<repository>
+	<id>oss.sonatype.org</id>
+	<name>OSS Sonatype Staging</name>
+	<url>https://oss.sonatype.org/content/groups/staging</url>
+</repository>
 	</repositories>
   <modules>
     <module>sust-ims-widgetset</module>
